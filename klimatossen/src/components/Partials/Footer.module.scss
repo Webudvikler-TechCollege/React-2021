@@ -1,0 +1,160 @@
+footer {
+    background-image: url('../Assets/images/layout/Bg-Tile-Blue-Dark.png');
+    color: #fff;
+    padding: 1rem 0;
+
+    section {
+        width: 70%;
+        max-width: 1200px;
+        margin: auto;
+    }
+
+    section h3 {
+        margin: 0.5rem 0;
+    }
+
+    section a {
+        text-decoration: none;
+    }
+        
+    .underline {
+        text-decoration: underline;
+    }
+
+    .container-join-us {
+        justify-content: space-between;
+    }    
+
+    section .container-join-us p, 
+    section .container-join-us a {
+        font-family: 'Open Sans Condensed Light';
+        color: #fff;
+        font-size: 1.75vw;
+        margin: 0;
+    }    
+
+    section .container-join-us img {
+        max-width: 100%;
+        padding: 0.5rem 0;
+    }
+    
+
+}
+
+/* Ens udseende input (tekst og knap) */
+.contactform {
+    input {
+        border: none;
+        background-color: var(--color1);
+        color: #fff;
+        padding: 0.5rem;
+        margin-top: 0.5rem;
+        width: 100%;
+    }
+
+    .container-buttons input:hover {
+        background-color: var(--color3);
+        cursor: pointer;
+    }
+    
+    input:focus {
+        outline: none;
+    }
+
+    input::-webkit-input-placeholder {
+        color: #fff;
+    }
+    
+
+    }
+
+.container-call-me label::after, .container-mail-me label::after {
+    width: 0.75rem;
+    height: 0.75rem;
+    box-shadow: 0 0 0 0.25rem var(--color1);
+    background: var(--color1);
+    content: "";
+}
+
+/* Når checkbox label checkes ændre baggrund farve af 'knap' */
+.container-call-me label.checked::after, .container-mail-me label.checked::after {
+    background: var(--color3);
+}
+
+/* Primært placering af 'knap', dog også pointer når mouse hover over label */
+.checkbox-inputs label {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 0.5rem;
+    cursor: pointer;
+    margin-right: 0.25rem;
+}
+
+/* Skjuler normale checkbox */
+.container-call-me input, .container-mail-me input {
+    display: none;
+}
+
+
+
+
+/* På desktop vises logo før form i html */
+footer .logo-footer-desktop {
+    display: block;
+}
+
+/* På desktop skjules logo efter form i html */
+footer .logo-footer-mobile {
+    display: none;
+}
+
+/* Style af fejl besked ved forkert udfyldt form */
+#contact-form #error {
+    color: #fff;
+    font-weight: 700;
+    background-color: red;
+    text-align: center;
+    width: 70%;
+    margin: auto;
+}
+
+/* Style af succes besked ved korrekt udfyldt form */
+#contact-form #success {
+    color: #fff;
+    font-weight: 700;
+    background-color: green;
+    text-align: center;
+    width: 70%;
+    margin: auto;
+}
+
+/*
+    Responsiv mobil
+*/
+@media only screen and (max-width: 768px) {
+    /* h3 gøres større */
+    footer section h3 {
+        font-size: 4vw;
+    }
+
+    /* p og a gøres større */
+    footer section .container-join-us p, footer section .container-join-us a {
+        font-size: 2.5vw;
+    }
+
+    /* På mobil skjules logo før form i html */
+    footer .logo-footer-desktop {
+        display: none;
+    }
+
+    /* På mobil vises logo efter form i html */
+    footer .logo-footer-mobile {
+        display: block;
+    }
+
+    /* Ændrer retning af indhold fra row til column */
+    footer .container-join-us {
+        flex-direction: column;
+    }
+}

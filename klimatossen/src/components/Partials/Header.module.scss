@@ -1,0 +1,36 @@
+.test {
+    border: solid 1px #000;
+}
+
+.hero {
+    position: relative;
+
+    div {
+        position: absolute;
+        left: 5%;
+        top: 10%;
+    }  
+    
+    div img {
+        max-width: 50%;
+    }
+    
+    article {
+        position: absolute;
+        right: 5%;
+        top: 45%;
+    }
+      
+    article h1 {
+        font-family: 'Open Sans Condensed Light Italic';
+        color: var(--color1);
+        margin: 0 0 0 auto;
+        text-align: right;
+    }
+    
+    article p {
+        max-width: 60%;
+        margin-left: auto;
+        text-align: right;
+    }    
+}
