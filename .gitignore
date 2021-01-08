@@ -1,3 +1,4 @@
 _*
 /.vscode
 /klimatossen/node_modules*
+.DS_Store
