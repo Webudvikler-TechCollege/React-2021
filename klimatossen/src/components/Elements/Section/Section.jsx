@@ -1,11 +1,16 @@
+import styles from './Section.module.scss';
+console.log(styles);
+
 const Section = (props) => {
+    const boxstyle = `${styles[props.data.class]} ${styles.box}`;
+
     return (
-        <section className={'container-' + props.id}>
+        <section className={boxstyle}>
             <article>
-                <h2>{props.header}</h2>
-                <section>
-                    <div className="flex-item-1 flex-col-2">
-                        <img src={'/images/layout/' + props.image} alt="Icon CO2" />
+                <h2>{props.data.header}</h2>
+                <section className="flexbox iconwrapper">
+                    <div>
+                        <img src={'/images/layout/' + props.data.image} alt="Icon CO2" />
                     </div>
                 </section>
             </article>

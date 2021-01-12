@@ -1,36 +1,20 @@
-.test {
-    border: solid 1px #000;
-}
-
 .hero {
-    position: relative;
+    border: solid 1px #000;
+    background-image: url(../Assets/images/layout/Bg-Hero-Blue.png);
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    justify-content: normal;
+    align-items: normal;
+    align-content: normal;
+    padding: 1rem;
+  
+    img {
+        width: 30rem;
+    }
 
-    div {
-        position: absolute;
-        left: 5%;
-        top: 10%;
-    }  
-    
-    div img {
-        max-width: 50%;
-    }
-    
     article {
-        position: absolute;
-        right: 5%;
-        top: 45%;
-    }
-      
-    article h1 {
-        font-family: 'Open Sans Condensed Light Italic';
-        color: var(--color1);
-        margin: 0 0 0 auto;
         text-align: right;
+        color: #fff;
     }
-    
-    article p {
-        max-width: 60%;
-        margin-left: auto;
-        text-align: right;
-    }    
 }
