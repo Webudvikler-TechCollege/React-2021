@@ -2,15 +2,8 @@ body {
   margin: 0;
 }
 
-.flex {
-  
-  div, article {
-    border: solid 1px #000;
-  }
-}
-
-.App {
-  width: 100%;
-  max-width: 1024px;
-  margin: auto;
+header {
+  border: solid 1px #000;
+  height: 12px;
+  text-align: center;
 }
