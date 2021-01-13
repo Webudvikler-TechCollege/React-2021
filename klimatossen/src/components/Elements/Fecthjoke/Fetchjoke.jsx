@@ -1,5 +1,4 @@
 import styles from './Section.module.scss';
-console.log(styles);
 
 const Section = (props) => {
 
