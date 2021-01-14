@@ -56,6 +56,10 @@ export function Categorie(props){
 
     // console.log('categorie is : ' + categorie)
 
+
+    // Her looper vi igennem categories og laver et tjek på
+    // om den valgte categorie faktisk findes. Ellers kan man ændre URL´en
+    // til eks. 'bukserne' og så renderer siden også 'buksere'
     return (
         props.categories.map((item) => {
             return item.title.toLowerCase() === categorie ?

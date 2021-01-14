@@ -5,6 +5,11 @@ import { Frontpage } from "../pages/Frontpage";
 import { NotFound } from "../pages/NotFound";
 import { Signup } from "../pages/Signup";
 
+// Vores navigtion ligger uden for switchen
+// Switch "skifter" imellem routes vi definerer inden i
+// Det første Route komponent peger på /forside og renderer Frontpage når den rammes
+
+
 export function Routes() {
   return (
     <Switch>
