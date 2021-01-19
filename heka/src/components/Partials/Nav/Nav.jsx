@@ -1,6 +1,6 @@
 import styles from "./Nav.module.scss";
 
-const Nav = () => {
+export const Nav = () => {
     return (
         <nav className={styles.navbar}>
             <ul>
@@ -13,5 +13,3 @@ const Nav = () => {
         </nav>
     )
 }
-
-export default Nav;
