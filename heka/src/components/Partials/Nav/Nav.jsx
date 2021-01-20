@@ -5,10 +5,10 @@ export const Nav = () => {
         <nav className={styles.navbar}>
             <ul>
                 <li><a href="/">Forside</a></li>
-                <li><a href="/">Produkter</a></li>
-                <li id="logo">Bageriet</li>
-                <li><a href="/">Kontakt</a></li>
-                <li><a href="/">Login</a></li>
+                <li><a href="/products">Produkter</a></li>
+                <p className={styles.logo}>Bageriet</p>
+                <li><a href="/contact">Kontakt</a></li>
+                <li><a href="/login">Login</a></li>
             </ul>
         </nav>
     )

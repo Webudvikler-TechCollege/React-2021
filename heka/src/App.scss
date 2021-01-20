@@ -5,7 +5,17 @@ body {
 }
 
 header {
-  border: solid 1px #000;
-  height: 12px;
+  text-align: center;
+  overflow-y: auto;
+}
+
+main {
+  width: 100%;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+h1 {
+  font-family: 'Lobster';
   text-align: center;
 }
