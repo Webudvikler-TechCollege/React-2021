@@ -1,9 +1,25 @@
+@import url('https://fonts.googleapis.com/css2?family=Lobster&display=swap');
+
 body {
   margin: 0;
 }
 
 header {
-  border: solid 1px #000;
-  height: 12px;
+  text-align: center;
+  overflow-y: auto;
+}
+
+main {
+  width: 100%;
+  margin: 0 auto;
+
+  .container {
+    max-width: 800px;
+    margin: 0 auto;
+  }
+}
+
+h1 {
+  font-family: 'Lobster';
   text-align: center;
 }
