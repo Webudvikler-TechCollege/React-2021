@@ -1,4 +1,6 @@
 import React from 'react'
+import { News } from '../../components/news/News'
+import { Signup } from '../../components/signup/Signup'
 import { Slider } from '../../components/slider/Slider'
 
 export function Frontpage(){
@@ -13,6 +15,8 @@ export function Frontpage(){
     return (
         <>  
             <Slider/>
+            <News/>
+            <Signup/>
         </>
     )
 }
