@@ -7,6 +7,7 @@ import {
  } from 'react-router-dom';
  import { Header } from './components/Partials/Header/Header';
  import { Main } from './components/Partials/Main/Main';
+ import { Footer } from './components/Partials/Footer/Footer';
  import { Home } from './components/Pages/Home/Home';
  import { Products } from './components/Pages/Products/Products';
  import { Contact } from './components/Pages/Contact/Contact';
@@ -41,7 +42,7 @@ function App() {
       </Switch>
       </Main>
 
-
+      <Footer />
     </Router>
   );
 }
