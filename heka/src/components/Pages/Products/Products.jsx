@@ -1,4 +1,5 @@
 import { CategoryList } from '../../Elements/CategoryList/CategoryList';
+import { ProductList } from '../../Elements/ProductList/ProductList';
 
 export const Products = () => {
     return (
@@ -10,7 +11,7 @@ export const Products = () => {
                     <CategoryList />
                 </aside>
                 <section>
-
+                    <ProductList />
                 </section>
             </div>
         </>

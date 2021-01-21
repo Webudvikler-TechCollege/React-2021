@@ -1,6 +1,6 @@
 import { News } from '../../Elements/News/News'
 import { SignUp } from '../../Elements/SignUp/SignUp'
-import { ProductList } from '../../Elements/ProductList/ProductList'
+import { LatestProducts } from '../../Elements/LatestProducts/LatestProducts'
 
 export const Home = () => {
 
@@ -12,7 +12,7 @@ export const Home = () => {
             </section>
             <SignUp />
             <section className="container">
-                <ProductList />
+                <LatestProducts />
             </section>
         </>
     )

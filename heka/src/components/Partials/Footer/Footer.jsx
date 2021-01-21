@@ -1,4 +1,3 @@
-import styles from "./Footer.module.scss";
 import tothetop from '../../Assets/images/icons/icon-top.png'
 
 export const Footer = () => {
