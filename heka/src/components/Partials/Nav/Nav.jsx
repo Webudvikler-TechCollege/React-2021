@@ -6,7 +6,7 @@ export const Nav = () => {
             <ul>
                 <li><a href="/">Forside</a></li>
                 <li><a href="/products">Produkter</a></li>
-                <p className={styles.logo}>Bageriet</p>
+                <h2 className={styles.logo}>bageriet</h2>
                 <li><a href="/contact">Kontakt</a></li>
                 <li><a href="/login">Login</a></li>
             </ul>

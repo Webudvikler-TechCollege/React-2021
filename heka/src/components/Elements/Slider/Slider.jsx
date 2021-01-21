@@ -26,7 +26,7 @@ export function Slider(){
     function Item(props){
         return (
             <div className={Style.slider} style={{Height:"65vh"}}>
-                <h3>{props.item.description}</h3>
+                <h2>{props.item.description}</h2>
                 <img alt={props.item.alt} width="100%" src={props.item.url} />
             </div>
         )
@@ -38,7 +38,7 @@ export function Slider(){
                 {
                     carouselItems.map((item, index) => {
                     return( 
-                            <Item key={index} item={item}/>
+                        <Item key={index} item={item}/>
                     )
                 })
                 }

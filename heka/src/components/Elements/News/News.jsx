@@ -26,7 +26,7 @@ export const News = () => {
                                 <img src={item.image} alt={item.title} />
                             </figure>
                             <h4>{item.title}</h4>
-                            <p>{item.teaser}</p>
+                            <p>{item.teaser.substring(0, 180) + '...'}</p>
                         </article>
                     )    
                 } else {

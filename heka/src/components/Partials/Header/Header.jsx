@@ -1,4 +1,4 @@
-import styles from "./Header.module.scss";
+//import styles from "./Header.module.scss";
 import { Nav } from '../Nav/Nav';
 import { Slider } from '../../Elements/Slider/Slider'
 
