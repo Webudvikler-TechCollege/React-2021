@@ -2,11 +2,11 @@ import { useState, useEffect } from 'react';
 import { doFetch } from '../../../helpers/fetch';
 //import { Link } from 'react-router-dom';
 
-export const ProductList = () => {
+export const ProductList = (props) => {
 
     const [apiData, setApiData] = useState([]);
 
-    const url = "https://api.mediehuset.net/bakeonline/categories/";
+    const url = "https://api.mediehuset.net/bakeonline/categories/" + props.id;
 
     const getProducts = async () => {
         const result = await doFetch(url);
