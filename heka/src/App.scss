@@ -1,15 +1,28 @@
 @import url('https://fonts.googleapis.com/css2?family=Lobster&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@300&display=swap');
 
+$color-dark: #333;
+$color-light: #fff;
+$color-blue: #617685;
+
 body {
   margin: 0;
   font-family: 'Open Sans';
   font-size: 0.8rem;
+  color: $color-dark;
 }
 
 header {
   text-align: center;
   overflow-y: auto;
+}
+
+.flex {
+  display: flex;
+}
+
+.grid {
+  display: grid;
 }
 
 main {
@@ -46,13 +59,13 @@ footer {
   }
 
   > section {
-    background-color: #333;
+    background-color: $color-dark;
     height: 200px;
     padding-top: 30px;
-    color: #fff;
+    color: $color-light;
   }
 
   h2 {
-    color: #fff;
+    color: $color-light;
   }
 }

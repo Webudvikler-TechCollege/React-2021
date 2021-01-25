@@ -1,19 +1,10 @@
-import { CategoryList } from '../../Elements/CategoryList/CategoryList';
-import { ProductList } from '../../Elements/ProductList/ProductList';
+import { ProductCatalog } from '../../Elements/ProductCatalog/ProductCatalog';
 
 export const Products = () => {
     return (
         <>
-            <h1>Vores elskede bagværk</h1>
-
-            <div>
-                <aside>
-                    <CategoryList />
-                </aside>
-                <section>
-                    <ProductList />
-                </section>
-            </div>
+            <h1>Vores elskede bagværk...</h1>
+            <ProductCatalog />
         </>
     )
 }
