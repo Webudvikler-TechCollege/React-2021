@@ -1,0 +1,28 @@
+@import '../../../App.scss';
+@import '../LatestProducts/LatestProducts.module.scss';
+
+.catalog {
+    grid-template-columns: 3fr 9fr;    
+}
+
+.categories {
+    list-style-type: none;
+
+    li {
+        cursor: pointer;
+        text-decoration: none;
+        font-size: 1.1rem;
+        margin-bottom: 5px;
+        &:hover {
+            color: $color-blue;
+        }
+    }
+}
+
+.productlist {
+    justify-content: space-evenly;
+
+    > article {
+    }
+}
+

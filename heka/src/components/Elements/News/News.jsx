@@ -18,7 +18,7 @@ export const News = () => {
 
     return (
         <section className={styles.news}>
-            {apiData.news && apiData.news.map((item, i) => {
+            {apiData.items && apiData.items.map((item, i) => {
                 if(i < 3) {
                     return (
                         <article key={item.id}>
