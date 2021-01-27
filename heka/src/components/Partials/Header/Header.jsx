@@ -1,12 +1,10 @@
-//import styles from "./Header.module.scss";
 import { Nav } from '../Nav/Nav';
-import { Slider } from '../../Elements/Slider/Slider'
+import styles from './Header.module.scss';
 
 export const Header = (props) => {
     return (
-        <header>
+        <header className={styles.subheader}>
             <Nav />
-            <Slider />
         </header>  
     )
 }
