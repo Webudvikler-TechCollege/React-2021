@@ -1,4 +1,4 @@
-import { Link, useRouteMatch } from 'react-router-dom';
+import { useRouteMatch } from 'react-router-dom';
 import styles from './ProductListItem.module.scss';
 
 export const ProductListItem = props => {
