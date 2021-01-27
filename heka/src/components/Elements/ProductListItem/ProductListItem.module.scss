@@ -1,0 +1,43 @@
+.productitem {
+    box-sizing: border-box;
+
+    div:first-child {
+        width: 100%;
+        max-width: 240px;
+        height: 140px;
+        background-size: 300px;
+        background-repeat: no-repeat;
+        background-position: center;
+    }
+
+    .num_comments {
+        padding-top: 10px;
+        text-align: center;
+        color: #999;
+
+        img {
+            margin-left: 10px;
+        }
+    }
+
+    h4 {
+        text-transform: uppercase;
+
+        + p {
+            height: 90px;
+        }
+    }
+
+    a {
+        display: block;
+        text-align: center;
+        text-decoration: none;
+        text-transform: uppercase;
+        border: solid 1px #999;
+        color: #666;
+        padding: 5px;
+        font-size: 0.8rem;
+        font-weight: bold;
+        margin-bottom: 30px;
+    }
+}

@@ -5,8 +5,10 @@ import {
   Route,
   Redirect
  } from 'react-router-dom';
+ import { HeaderFrontpage } from './components/Partials/HeaderFrontpage/HeaderFrontpage';
  import { Header } from './components/Partials/Header/Header';
  import { Main } from './components/Partials/Main/Main';
+ import { Footer } from './components/Partials/Footer/Footer';
  import { Home } from './components/Pages/Home/Home';
  import { Products } from './components/Pages/Products/Products';
  import { Contact } from './components/Pages/Contact/Contact';
@@ -15,23 +17,24 @@ import {
 function App() {
   return (
     <Router>
-      <Header />
-
       <Main>
       <Switch>
         <Route exact path="/home">
+          <HeaderFrontpage />
           <Home />
         </Route>
-        <Route exact path="/products">
+        <Route path="/products">
+          <Header />
           <Products />
         </Route>
         <Route exact path="/contact">
+          <Header />
           <Contact />
         </Route>
         <Route exact path="/login">
+          <Header />
           <Login />
         </Route>
-        <Route exact path="/home"></Route>
         <Route exact path="/">
           <Redirect to="/home" />
         </Route>
@@ -41,7 +44,7 @@ function App() {
       </Switch>
       </Main>
 
-
+      <Footer />
     </Router>
   );
 }

@@ -18,7 +18,7 @@ export const News = () => {
 
     return (
         <section className={styles.news}>
-            {apiData.news && apiData.news.map((item, i) => {
+            {apiData.items && apiData.items.map((item, i) => {
                 if(i < 3) {
                     return (
                         <article key={item.id}>
@@ -26,7 +26,7 @@ export const News = () => {
                                 <img src={item.image} alt={item.title} />
                             </figure>
                             <h4>{item.title}</h4>
-                            <p>{item.teaser}</p>
+                            <p>{item.teaser.substring(0, 180) + '...'}</p>
                         </article>
                     )    
                 } else {
