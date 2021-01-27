@@ -4,8 +4,11 @@ import {
   Route,
   Redirect,
 } from "react-router-dom";
-import { Navigation } from "./components/navigation/Navigation";
-import { Frontpage } from "./pages/frontpage/Frontpage";
+import { Navigation } from "./components/Navigation/Navigation";
+import { ContactPage } from "./pages/ContactPage/ContactPage";
+import { FrontPage } from "./pages/FrontPage/Frontpage";
+import { LoginPage } from "./pages/LoginPage/LoginPage";
+import { ProductPage } from "./pages/ProductPage/ProductPage";
 
 // App indeholder:
 // - Router som top-level component
@@ -19,13 +22,21 @@ function App() {
       <Navigation />
 
       <Switch>
-        <Route exact path="/home">
-          <Frontpage />
+        <Route path="/home">
+          <FrontPage />
         </Route>
 
-        <Route exact path="/products"></Route>
-        <Route exact path="/contact"></Route>
-        <Route exact path="/login"></Route>
+        <Route path="/products">
+          <ProductPage/>
+        </Route>
+
+        <Route path="/contact">
+          <ContactPage/>
+        </Route>
+        
+        <Route path="/login">
+          <LoginPage/>
+        </Route>
 
         <Route exact path="/">
           <Redirect to="/home" />

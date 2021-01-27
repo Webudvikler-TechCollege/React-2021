@@ -23,9 +23,17 @@ export async function doFetch(url, type, data) {
 // Alternativ metode med to forskellige fetch funktioner
 // en til at hente data (GET) og en til sende (POST)
 
-  export async function getData(url) {
+  export async function getAuthData(url, sessionToken) {
+
+    const options = {
+      method : 'GET',
+      headers: {
+        'Authorization': `Bearer ${sessionToken.access_token}`, 
+      }, 
+  }
+
     try {
-      const response = await fetch(url)
+      const response = await fetch(url, options)
       const data = await response.json()
       return data
     }
@@ -34,10 +42,14 @@ export async function doFetch(url, type, data) {
     }
   }
 
-  export async function postData(url, data) {
+  export async function postAuthData(url, data, sessionToken) {
 
     const options = {
-      body : data
+      method : 'POST',
+      body : data,
+      headers: {
+        'Authorization': `Bearer ${sessionToken.access_token}`, 
+      }, 
   }
     try {
       const response = await fetch(url, options)

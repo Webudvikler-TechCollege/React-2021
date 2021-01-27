@@ -1,0 +1,26 @@
+.product{
+
+    display: grid;
+    grid-template-columns: 3fr 1fr;
+    gap: 16px;
+
+    h2{
+        font-size: 2rem;
+    }
+
+    img{
+        width: 200px;
+        height: 200px;
+        object-fit: cover;
+    }
+
+    aside{
+        div{
+            background-color: rgb(245,245,245);
+            height: 30px;
+            p{
+                padding: 6px;
+            }
+        }
+    }
+}

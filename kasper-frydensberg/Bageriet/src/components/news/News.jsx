@@ -32,7 +32,7 @@ export function News (){
             <div className={Style.newsGrid}>
                
                {/* Loop igennem vores news.news array og vis os kun de tre første entries */}
-                {news.news && news.news.map((item, i) => {
+                {news.items && news.items.map((item, i) => {
                     if (i < 3){
                         return (
                             <div key={item.id} id={item.id}>

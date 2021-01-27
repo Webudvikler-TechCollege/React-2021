@@ -1,9 +1,9 @@
 import React from 'react'
-import { News } from '../../components/news/News'
-import { Signup } from '../../components/signup/Signup'
-import { Slider } from '../../components/slider/Slider'
+import { News } from '../../components/News/News'
+import { Signup } from '../../components/Signup/Signup'
+import { Slider } from '../../components/Slider/Slider'
 
-export function Frontpage(){
+export function FrontPage(){
 
     // Forsiden skal indeholde
     // Slider

@@ -11,17 +11,17 @@ export function Navigation() {
     <nav className={Style.navBar}>
       <ul>
         <li>
-          <Link to="home">FORSIDE</Link>
+          <Link to="/home">FORSIDE</Link>
         </li>
         <li>
-          <Link to="products">PRODUKTER</Link>
+          <Link to="/products">PRODUKTER</Link>
         </li>
         <li>Bageriet</li>
         <li>
-          <Link to="contact">KONTAKT</Link>
+          <Link to="/contact">KONTAKT</Link>
         </li>
         <li>
-          <Link to="login">LOGIN</Link>
+          <Link to="/login">LOGIN</Link>
         </li>
       </ul>
     </nav>
