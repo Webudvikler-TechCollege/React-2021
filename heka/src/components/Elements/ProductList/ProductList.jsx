@@ -21,14 +21,17 @@ export function ProductList() {
     }, [categoryId])
 
     return (
-        <div className={`flex ${styles.productlist}`}>
-            {productList && productList.item && productList.item.products && productList.item.products.map((product, index) => {
-                return (
-                    <ProductListItem key={product.id} data={product} />
-                )
-            })
-        }
-        </div>
+        <>
+
+            <div className={`flex ${styles.productlist}`}>
+                {productList && productList.item && productList.item.products && productList.item.products.map((product, index) => {
+                    return (
+                        <ProductListItem key={product.id} data={product} />
+                    )
+                })
+            }
+            </div>
+        </>
     )
 
 }

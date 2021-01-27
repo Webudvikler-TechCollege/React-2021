@@ -1,6 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Lobster&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@300&display=swap');
 
+$color-bg: #fafafa;
 $color-dark: #333;
 $color-light: #fff;
 $color-blue: #617685;
@@ -10,6 +11,7 @@ body {
   font-family: 'Open Sans';
   font-size: 0.8rem;
   color: $color-dark;
+  background-color: $color-bg;
 }
 
 header {

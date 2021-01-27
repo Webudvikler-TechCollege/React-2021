@@ -1,4 +1,4 @@
-export async function doFetch(url, data = null, method = 'get') {
+export async function doFetch(url, method = 'get', data = null) {
 
     const options = {
         method: method,

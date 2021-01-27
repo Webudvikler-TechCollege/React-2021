@@ -7,6 +7,7 @@ export const ProductNav = () => {
 
     const [prodList, setProdList] = useState([]);
     let { url } = useRouteMatch();
+    console.log(url);
 
     useEffect(() => {
         const url = "https://api.mediehuset.net/bakeonline/categories";
@@ -20,7 +21,7 @@ export const ProductNav = () => {
     }, [])
 
     return (
-        <nav className={styles.productlist}>
+        <nav className={styles.productnav}>
             <ul className={styles.categories}>
                 {
                     prodList.items && prodList.items.map((category, index) => { 
