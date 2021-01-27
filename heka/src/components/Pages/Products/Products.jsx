@@ -12,29 +12,29 @@ export const Products = () => {
         <div className="container">
             <div>
                 <h1>Vores elskede bagværk...</h1>
-                <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Quis, perferendis porro libero tempora rerum quo explicabo nisi excepturi consectetur dolorem veritatis incidunt eligendi? Vel accusantium atque et pariatur quaerat in.</p>
             </div>
 
-            <div className={`${styles.catalog} grid`}>
-
+            <div className={`${styles.products} grid`}>
                 <aside>
                     <ProductNav />
                 </aside>
                 <section>
                     <Switch>
-                        <Route exact path={url}>
+                        
+                        <Route exact path={`${url}`}>
                             <Redirect to={`${url}/1`}></Redirect>
                         </Route>
 
                         <Route exact path={`${url}/:categoryId`}>
                             <ProductList />
                         </Route>
+
                         <Route exact path={`${url}/:categoryId/:productId`}>
                             <ProductDetails />
                         </Route>
-                    </Switch>
 
-                </section>
+                    </Switch>
+            </section>
             </div>
         </div>
     )
