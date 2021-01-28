@@ -1,5 +1,10 @@
 .productitem {
     box-sizing: border-box;
+    cursor: pointer;
+
+    &:hover {
+        
+    }
 
     div:first-child {
         width: 100%;
