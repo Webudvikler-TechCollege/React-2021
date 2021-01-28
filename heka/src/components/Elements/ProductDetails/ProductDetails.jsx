@@ -8,8 +8,6 @@ export function ProductDetails() {
     const [product, setProductDetails] = useState([]);
     let { productId } = useParams();
 
-    console.log(productId);
-
     useEffect(() => {
         const getProductDetails = async () => {
             let url = `https://api.mediehuset.net/bakeonline/products/${productId}`
