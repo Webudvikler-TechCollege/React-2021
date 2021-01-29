@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { useForm } from 'react-hook-form';
 import { doFetch } from '../../../helpers/fetch';
 import styles from './Login.module.scss';
@@ -20,6 +20,7 @@ export const Login = () => {
         let url = "https://api.mediehuset.net/token";
 
         let result = await doFetch(url, 'POST', formData);
+        console.log(result);
         handleSessionData(result);
     }
 
@@ -27,6 +28,8 @@ export const Login = () => {
         if(!res.message) {
             setLoginData(res);
             sessionStorage.setItem('token', JSON.stringify(res))
+        } else {
+            setMessage('Kunne ikke matche brugernavn eller adgangskode');
         }
     }
 
@@ -41,35 +44,39 @@ export const Login = () => {
         }, 3500)
     }
 
+    useEffect(() => {
+        if(sessionStorage.getItem('token')) {
+            setLoginData(JSON.parse(sessionStorage.getItem('token')))
+        }
+    }, [])
 
     return (
-        <div className="container">
+        <div className={`container ${styles.wrapper}`}>
             <h1>Login</h1>
 
-            <p>{loginData && loginData.username ? `Du er logget ind som ${loginData.username}` : message} </p>
+            <p>{message}</p>
 
-            <form onSubmit={handleSubmit(onSubmit)} className={styles.loginform}>
-                <div>
-                    <label htmlFor="username">Brugernavn</label>
-                    <input type="text" id="username" name="username" ref={register({required: true})} />
-                    {errors.fullname && errors.fullname.type === 'required' && <span>Du skal indtaste dit brugernavn</span>}
-                </div>
-                <div>
-                    <label htmlFor="password">Adgangskode</label>
-                    <input type="password" id="password" name="password" ref={register({required: true})} />
-                    {errors.email && <span>Du skal indtaste din adgangskode</span>}
-                </div>
-                <div>
-                    {!loginData.user_id && 
+            {!loginData && !loginData.username ?  
+
+                <form onSubmit={handleSubmit(onSubmit)}>
+                    <div>
+                        <input type="text" id="username" name="username" placeholder="Brugernavn" ref={register({required: true})} />
+                        {errors.fullname && errors.fullname.type === 'required' && <span>Du skal indtaste dit brugernavn</span>}
+                    </div>
+                    <div>
+                        <input type="password" id="password" name="password" placeholder="Adgangskode" ref={register({required: true})} />
+                        {errors.email && <span>Du skal indtaste din adgangskode</span>}
+                    </div>
+                    <div>
+                        <button type="reset">Annuller</button>
                         <button type="submit">Send</button>
-                    }
-                    {loginData.user_id && 
-                        <button onClick={() => {logOut() }}>Logout</button>
-                    }
-                    <button type="reset">Annuller</button>
-                </div>
-            </form>
-
+                    </div>
+                </form> :
+                <form>
+                    <p>Du er logget ind som {loginData.username}</p>
+                    <button onClick={() => {logOut()}}>Log ud</button>
+                </form>
+            }
         </div>
     )
 }
