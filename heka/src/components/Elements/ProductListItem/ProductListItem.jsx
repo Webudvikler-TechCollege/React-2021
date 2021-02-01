@@ -4,6 +4,9 @@ import styles from './ProductListItem.module.scss';
 export const ProductListItem = props => {
     let { url } = useRouteMatch();
 
+    if(props.url) {
+        url = props.url;
+    }
 
     return (
         <article className={styles.productitem} key={props.data.id}>
