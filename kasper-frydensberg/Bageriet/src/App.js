@@ -1,3 +1,4 @@
+import { useEffect, useState } from "react";
 import {
   BrowserRouter as Router,
   Switch,
@@ -17,6 +18,17 @@ import { ProductPage } from "./pages/ProductPage/ProductPage";
 // - Routes der peger på de stier vi laver i navigation og renderer de tilsvarende components
 
 function App() {
+
+  // 'Global' state til at gemme vores loginData
+  const [loginData, setLoginData] = useState('')
+
+  // useEffect hook der henter vores token fra sessionStorage hvis den allerede findes
+  useEffect(() => {
+    if (sessionStorage.getItem('token')) {
+        setLoginData(JSON.parse(sessionStorage.getItem('token')))            
+        }
+    }, [])
+
   return (
     <Router>
       <Navigation />
@@ -27,7 +39,7 @@ function App() {
         </Route>
 
         <Route path="/products">
-          <ProductPage/>
+          <ProductPage setLoginData={setLoginData} loginData={loginData}/>
         </Route>
 
         <Route path="/contact">
@@ -35,7 +47,7 @@ function App() {
         </Route>
         
         <Route path="/login">
-          <LoginPage/>
+          <LoginPage setLoginData={setLoginData} loginData={loginData}/>
         </Route>
 
         <Route exact path="/">

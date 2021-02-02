@@ -3,7 +3,7 @@ import { useParams } from "react-router-dom";
 import { doFetch } from "../../helpers/fetch";
 import Style from './productDetails.module.scss';
 
-export function ProductDetails() {
+export function ProductDetails(props) {
 
   // Hent vores produktID parameter fra URL
   let { productId } = useParams();

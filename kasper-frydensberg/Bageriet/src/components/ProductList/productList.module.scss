@@ -1,7 +1,10 @@
 .productGrid{
-    display: grid;
+    display: inline-grid;
     grid-template-columns: repeat(3, 1fr);
     gap: 8px;
+    width: 65%;
+    vertical-align: top;
+    margin-left: 5%;
     div{
         display: grid;
         height: 45vh;

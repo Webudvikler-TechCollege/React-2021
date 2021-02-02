@@ -1,6 +1,6 @@
 // Både GET og POST i en funktion med variabler
 
-export async function doFetch(url, type, data) {
+export async function doFetch(url, type, data, key) {
 
     let method = type || 'GET'
     let body = data || null
@@ -8,7 +8,7 @@ export async function doFetch(url, type, data) {
     const options = {
         method : method,
         body : body
-    }
+      }
 
     try {
       const response = await fetch(url, options)
@@ -21,14 +21,14 @@ export async function doFetch(url, type, data) {
   }
 
 // Alternativ metode med to forskellige fetch funktioner
-// en til at hente data (GET) og en til sende (POST)
+// Bruger authentication token som key
 
-  export async function getAuthData(url, sessionToken) {
+  export async function getAuthData(url, key) {
 
     const options = {
       method : 'GET',
       headers: {
-        'Authorization': `Bearer ${sessionToken.access_token}`, 
+        'Authorization': `Bearer ${key}`, 
       }, 
   }
 
@@ -42,13 +42,31 @@ export async function doFetch(url, type, data) {
     }
   }
 
-  export async function postAuthData(url, data, sessionToken) {
+  export async function postAuthData(url, key, data) {
 
     const options = {
       method : 'POST',
       body : data,
       headers: {
-        'Authorization': `Bearer ${sessionToken.access_token}`, 
+        'Authorization': `Bearer ${key}`, 
+      }, 
+  }
+    try {
+      const response = await fetch(url, options)
+      const data = await response.json()
+      return data
+    }
+    catch (error) {
+      console.log(error)
+    }
+  }
+
+  export async function deleteAuthData(url, key) {
+
+    const options = {
+      method : 'DELETE',
+      headers: {
+        'Authorization': `Bearer ${key}`, 
       }, 
   }
     try {

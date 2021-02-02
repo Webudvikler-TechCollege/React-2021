@@ -4,8 +4,9 @@ import { ProductNav } from "../../components/ProductNav/ProductNav";
 import { ProductDetails } from "../../components/ProductDetails/ProductDetails";
 import { ProductList } from "../../components/ProductList/ProductList";
 import Style from './productPage.module.scss'
+import { CommentSection } from "../../components/Comments/CommentSection";
 
-export function ProductPage() {
+export function ProductPage(props) {
   let { url } = useRouteMatch();
 
   return (
@@ -32,9 +33,10 @@ export function ProductPage() {
         {/* Route to render productDetails when we have a categoryId param followed by a productId */}
         <Route path={`${url}/:categoryId/:productId`}>
           <ProductDetails />
+          <CommentSection loginData={props.loginData} setLoginData={props.setLoginData}/>
         </Route>
       </Switch>
-    </section>
+      </section>
   </>
   );
 }

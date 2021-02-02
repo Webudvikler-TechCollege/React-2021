@@ -1,8 +1,9 @@
 import React from 'react'
-import { Login } from '../../components/Login/login'
+import { Login } from '../../components/Login/Login'
 
-export function LoginPage() {
+export function LoginPage(props) {
+    
     return (
-        <Login/>
+        <Login loginData={props.loginData} setLoginData={props.setLoginData}/>
     )
 }

@@ -1,10 +1,14 @@
 .productNav{
-    margin: 10%;
+    margin-left: 10%;
+    display: inline-grid;
+    height: 20vh;
+    grid-template-rows: auto;
+    vertical-align: top;
     a{
         direction: rtl;
-        display: block;
         text-decoration: none;
         color:black;
+        display: block;
         padding: 8px;
     }
 }

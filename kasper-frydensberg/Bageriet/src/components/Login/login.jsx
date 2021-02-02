@@ -1,12 +1,11 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState } from 'react'
 import Style from './login.module.scss'
 import { useForm } from "react-hook-form";
 import { doFetch } from '../../helpers/fetch';
 
-export function Login() {
+export function Login(props) {
 
     const [message, setMessage] = useState("Indtast login oplysninger")
-    const [loginData, setLoginData] = useState("")
 
     // Tager data fra vores form og kører sendLoginRequest funktion med data
     const onSubmit = (data, e) => sendLoginRequest(data, e);
@@ -31,7 +30,7 @@ export function Login() {
     // funktion til at håndtere vores data token, give fejlbesked og gemme i sessionstorage
     const handleSessionData = (res) => {
         if (!res.message) {
-            setLoginData(res)
+            props.setLoginData(res)
             console.log(res)
             sessionStorage.setItem('token', JSON.stringify(res))
         }
@@ -43,7 +42,7 @@ export function Login() {
 
     // funktion til at logge ud - sletter data fra sessionstorage og state
     const logOut = () => {
-        setLoginData([])
+        props.setLoginData([])
         sessionStorage.removeItem('token');
         setMessage("Du er nu logget ud")
 
@@ -53,18 +52,9 @@ export function Login() {
         }, 3500);
     }
 
-    // useEffect der henter og parser vores token 
-    useEffect(() => {
-        if (sessionStorage.getItem('token')) {
-            setLoginData(JSON.parse(sessionStorage.getItem('token')))
-        }
-    }, [])
-
-    console.log(loginData)
-
     return (
         <>
-            <h4>{loginData && loginData.username ? `Du er logget ind som ${loginData.username}` : message}</h4>
+            <h4>{props.loginData && props.loginData.username ? `Du er logget ind som ${props.loginData.username}` : message}</h4>
 
             <form className={Style.loginform} onSubmit={handleSubmit(onSubmit)}>
                 <b>Log in</b>
@@ -74,10 +64,10 @@ export function Login() {
                 <label>Password:</label>
                 <input name="password" type="password" ref={register({ required: true })}></input>
                     {errors.password && <span>Please fill out password</span>}
-                {!loginData.user_id &&
+                {!props.loginData.user_id &&
                     <button className={Style.loginbtn}>LOG IND</button>
                 }
-                {loginData.user_id &&
+                {props.loginData && props.loginData.user_id &&
                     <button onClick={() => {logOut() }} className={Style.logoutbtn}>LOG UD</button>
                 }
             </form>
