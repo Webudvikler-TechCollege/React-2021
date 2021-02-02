@@ -6,8 +6,6 @@ export const SignUp = () => {
     const [mail, setMail] = useState([]);
     const [feedback, setFeedback] = useState([]);
 
-    console.log(mail);
-
     const submit2Newsletter = async (e) => {
 
         e.preventDefault()
@@ -22,8 +20,6 @@ export const SignUp = () => {
         } else {
             setFeedback('Tak for din tilmelding. Du er nu tilmeldt nyhedsbrevet.');
         }
-
-        console.log(result);
 
     }
 
