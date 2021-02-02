@@ -19,18 +19,18 @@ export function ProductDetails() {
 
     return product.item ? (
 
-        <div className={styles.productdetail}>
+        <div className={`${styles.productdetails} grid`}>
             <article>
                 <h4>{product.item.title}</h4>
                 <figure><img src={product.item.image.fullpath} alt=""/></figure>
                 <div>{product.item.description}</div>
             </article>
             <aside>
+                <p><b>Ingredienser</b></p>
                 {product.item.ingredients.map((item, index) => {
+                    let ingredients = item.amount + ' ' + item.unit_abbr + ' ' + item.ingredient_title;
                     return (
-                        <div key={index}>
-                            <p>{item.ingredient_title}</p>
-                        </div>
+                        <div key={index}>{ingredients}</div>
                     )
                     
                 })}

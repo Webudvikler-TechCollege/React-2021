@@ -1,9 +1,9 @@
 import { useState, useEffect } from 'react';
 import { doFetch } from '../../../helpers/fetch';
 import { ProductListItem } from '../ProductListItem/ProductListItem';
-import styles from './LatestProducts.module.scss';
+import styles from './ProductListLatest.module.scss';
 
-export const LatestProducts = () => {
+export const ProductListLatest = () => {
 
     const [apiData, setApiData] = useState([]);
 
@@ -19,12 +19,11 @@ export const LatestProducts = () => {
 
     return (
         <>
-            <h2>Nyeste produkter</h2>
             <section className={`flex ${styles.productlist}`}>
                 {apiData.items && apiData.items.map((item, i) => {                    
                     if(i < 6) {
                         return (
-                            <ProductListItem data={item} />
+                            <ProductListItem key={item.id} data={item} url={`/products/${item.category_id}`} />
                         )    
                     } else {
                         return null
