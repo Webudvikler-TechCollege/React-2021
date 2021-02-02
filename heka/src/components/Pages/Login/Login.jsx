@@ -1,15 +1,17 @@
-import { useEffect, useState } from 'react';
+import { useState } from 'react';
 import { useForm } from 'react-hook-form';
 import { doFetch } from '../../../helpers/fetch';
 import styles from './Login.module.scss';
 
 
-export const Login = () => {
+export const Login = props => {
 
     const onSubmit = (data, e) => sendLoginRequest(data, e);
     const { register, handleSubmit, errors } = useForm();
-    const [loginData, setLoginData] = useState("");
     const [message, setMessage] = useState("");
+
+    let loginData = props.loginData;
+    let setLoginData = props.setLoginData;
 
     const sendLoginRequest = async (data, e) => {
         e.target.reset();
@@ -20,7 +22,6 @@ export const Login = () => {
         let url = "https://api.mediehuset.net/token";
 
         let result = await doFetch(url, 'POST', formData);
-        console.log(result);
         handleSessionData(result);
     }
 
@@ -44,11 +45,7 @@ export const Login = () => {
         }, 3500)
     }
 
-    useEffect(() => {
-        if(sessionStorage.getItem('token')) {
-            setLoginData(JSON.parse(sessionStorage.getItem('token')))
-        }
-    }, [])
+
 
     return (
         <div className={`container ${styles.wrapper}`}>

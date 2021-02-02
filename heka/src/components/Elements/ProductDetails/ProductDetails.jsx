@@ -18,23 +18,24 @@ export function ProductDetails() {
     }, [productId])
 
     return product.item ? (
-
-        <div className={`${styles.productdetails} grid`}>
-            <article>
-                <h4>{product.item.title}</h4>
-                <figure><img src={product.item.image.fullpath} alt=""/></figure>
-                <div>{product.item.description}</div>
-            </article>
-            <aside>
-                <p><b>Ingredienser</b></p>
-                {product.item.ingredients.map((item, index) => {
-                    let ingredients = item.amount + ' ' + item.unit_abbr + ' ' + item.ingredient_title;
-                    return (
-                        <div key={index}>{ingredients}</div>
-                    )
-                    
-                })}
-            </aside>
-        </div>
+        <>
+            <div className={`${styles.productdetails} grid`}>
+                <article>
+                    <h4>{product.item.title}</h4>
+                    <figure><img src={product.item.image.fullpath} alt=""/></figure>
+                    <div>{product.item.description}</div>
+                </article>
+                <aside>
+                    <p><b>Ingredienser</b></p>
+                    {product.item.ingredients.map((item, index) => {
+                        let ingredients = item.amount + ' ' + item.unit_abbr + ' ' + item.ingredient_title;
+                        return (
+                            <div key={index}>{ingredients}</div>
+                        )
+                        
+                    })}
+                </aside>
+            </div>
+        </>
     ) : null
 }

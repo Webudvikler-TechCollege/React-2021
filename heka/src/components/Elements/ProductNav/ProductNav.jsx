@@ -7,7 +7,6 @@ export const ProductNav = () => {
 
     const [prodList, setProdList] = useState([]);
     let { url } = useRouteMatch();
-    console.log(url);
 
     useEffect(() => {
         const url = "https://api.mediehuset.net/bakeonline/categories";
