@@ -10,7 +10,7 @@ export function CommentSection (props) {
     let { productId } = useParams()
 
     // States til at gemme comments array, vores input comment og titel
-    let [comments, setComments] = useState()
+    let [commentArr, setCommentArr] = useState()
     let [comment, setComment] = useState('')
     let [title, setTitle] = useState('')
     
@@ -23,15 +23,16 @@ export function CommentSection (props) {
         let url = `https://api.mediehuset.net/bakeonline/comments/${productId}`
         let res = await getAuthData(url, key)
         console.log(res)
-        setComments(res)
+        setCommentArr(res)
     }
     
     // useEffect der henter vores kommentarer
     useEffect(() => {   
-        if (username){
+        if (username && !commentArr){
             getComments()
         }
-    }, [username])
+        return null
+    })
 
     // funktion til at sende kommentarer - kører kun når comment og title er større en 0 og sender formData med
     const sendComment = async (e) => {
@@ -84,7 +85,7 @@ export function CommentSection (props) {
             </form>
         </section>
 
-        {comments && comments.items && comments.items.slice(0).reverse().map((item, i ) => {
+        {commentArr && commentArr.items && commentArr.items.slice(0).reverse().map((item, i ) => {
             return <Comment username={loginData.username} delete={deleteComment} key={i} comment={item}/>
         })}
         </>   
