@@ -1,17 +1,15 @@
-import { useState } from 'react';
+import { useState, useContext } from 'react';
 import { useForm } from 'react-hook-form';
 import { doFetch } from '../../../helpers/fetch';
 import styles from './Login.module.scss';
-
+import { AppContext } from '../../../context/ContextProvider'
 
 export const Login = props => {
 
+    const {loginData, setLoginData } = useContext(AppContext)
     const onSubmit = (data, e) => sendLoginRequest(data, e);
     const { register, handleSubmit, errors } = useForm();
     const [message, setMessage] = useState("");
-
-    let loginData = props.loginData;
-    let setLoginData = props.setLoginData;
 
     const sendLoginRequest = async (data, e) => {
         e.target.reset();

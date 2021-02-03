@@ -1,17 +1,17 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useContext } from 'react';
 import { useParams } from 'react-router-dom';
 import { CommentListItem } from '../CommentListItem/CommentListItem';
 import { getAuthData, postAuthData, deleteAuthData } from '../../../helpers/fetch'
+import { AppContext } from '../../../context/ContextProvider'
 
-export const CommentSection = props => {
 
+export const CommentSection = () => {
+
+    const { loginData } = useContext(AppContext)
     const { productId } = useParams();
     const [commentData, setCommentData] = useState();
     const [comment, setComment] = useState('');
     const [title, setTitle] = useState('');
-
-    let loginData = props.loginData;
-
 
     const getComments = async () => {
         let key = loginData.access_token;
@@ -24,7 +24,6 @@ export const CommentSection = props => {
     const submitComment = async(e) => {
 
         if(comment.length > 0 && title.length > 0) {
-            console.log(111);
             e.preventDefault();
             let url = `https://api.mediehuset.net/bakeonline/comments`;
             let formData = new FormData();
@@ -61,7 +60,7 @@ export const CommentSection = props => {
     })
 
     return (
-        props.loginData.username ?         
+        loginData.username ?         
             <>
                 <h2>Kommentarer</h2>
 
@@ -83,7 +82,6 @@ export const CommentSection = props => {
                         <CommentListItem key={item.id}  data={item} loginData={loginData} delete={deleteComment} />
                     )
                 })}
-
                 </section>
             </>
         : 

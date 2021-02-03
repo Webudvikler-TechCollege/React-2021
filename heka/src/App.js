@@ -1,4 +1,3 @@
-import { useState, useEffect } from 'react';
 import './App.scss';
 import { 
   BrowserRouter as Router,
@@ -14,48 +13,43 @@ import {
  import { Products } from './components/Pages/Products/Products';
  import { Contact } from './components/Pages/Contact/Contact';
  import { Login } from './components/Pages/Login/Login';
+ import { AppContextProvider } from './context/ContextProvider'
 
 function App() {
 
-  const [loginData, setLoginData] = useState('');
-
-  useEffect(() => {
-    if(sessionStorage.getItem('token')) {
-        setLoginData(JSON.parse(sessionStorage.getItem('token')))
-    }
-  }, [])  
-
   return (
-    <Router>
-      <Main>
-      <Switch>
-        <Route exact path="/home">
-          <HeaderFrontpage />
-          <Home />
-        </Route>
-        <Route path="/products">
-          <Header loginData={loginData} setLoginData={setLoginData} />
-          <Products loginData={loginData} setLoginData={setLoginData} />
-        </Route>
-        <Route exact path="/contact">
-          <Header />
-          <Contact />
-        </Route>
-        <Route exact path="/login">
-          <Header />
-          <Login loginData={loginData} setLoginData={setLoginData} />
-        </Route>
-        <Route exact path="/">
-          <Redirect to="/home" />
-        </Route>
-        <Route path="/">
-          <h2>404: Siden fandtes ikke.</h2>
-        </Route>
-      </Switch>
-      </Main>
+    <AppContextProvider>
+      <Router>
+        <Main>
+        <Switch>
+          <Route exact path="/home">
+            <HeaderFrontpage />
+            <Home />
+          </Route>
+          <Route path="/products">
+            <Header />
+            <Products  />
+          </Route>
+          <Route exact path="/contact">
+            <Header />
+            <Contact />
+          </Route>
+          <Route exact path="/login">
+            <Header />
+            <Login />
+          </Route>
+          <Route exact path="/">
+            <Redirect to="/home" />
+          </Route>
+          <Route path="/">
+            <h2>404: Siden fandtes ikke.</h2>
+          </Route>
+        </Switch>
+        </Main>
 
-      <Footer />
-    </Router>
+        <Footer />
+      </Router>
+    </AppContextProvider>
   );
 }
 
