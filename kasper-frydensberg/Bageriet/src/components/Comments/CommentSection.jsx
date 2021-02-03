@@ -1,11 +1,14 @@
-import React, {useEffect, useState} from 'react'
+import React, {useContext, useEffect, useState} from 'react'
 import { useParams } from 'react-router-dom'
 import { getAuthData, postAuthData, deleteAuthData } from '../../helpers/fetch'
 import { Comment } from './Comment'
+import { AppContext } from "../../context/ContextProvider"
 import Style from './comments.module.scss'
 
-export function CommentSection (props) {
+export function CommentSection () {
 
+    const { loginData } = useContext(AppContext)
+    
     // Hent vores produkt id fra router params
     let { productId } = useParams()
 
@@ -14,8 +17,7 @@ export function CommentSection (props) {
     let [comment, setComment] = useState('')
     let [title, setTitle] = useState('')
     
-    let loginData = props.loginData
-    let username = props.loginData.username
+    let username = loginData.username
     
     // Funktion til at hente alle kommentarer ud
     const getComments = async () => {
@@ -71,7 +73,7 @@ export function CommentSection (props) {
 
         // Returnerer vores kommentarer + form når brugeren er logget ind, ellers returnerer besked
     return (
-        props.loginData.username ? 
+        loginData.username ? 
         <>
         <section className={Style.commentInput}>
             <div>

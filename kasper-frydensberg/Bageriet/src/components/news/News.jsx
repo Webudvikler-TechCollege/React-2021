@@ -19,6 +19,7 @@ export function News (){
     // En useEffect der kører når komponentet 'mounter' / indlæses
     useEffect(() => {
         getNews()
+        return null
     }, [])
 
     return (

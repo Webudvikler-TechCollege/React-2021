@@ -11,20 +11,11 @@ export function Comment(props) {
   return (
     <div className={Style.comment}>
       <h2>{props.comment.title}</h2>
-      <h3>
-        {"Af: " +
-          props.comment.user.firstname +
-          " " +
-          props.comment.user.lastname}
-      </h3>
-      <b>{"Dato: " + convertTime(props.comment.created)}</b>
+      <h3>{`Af ${props.comment.user.firstname} ${props.comment.user.lastname}`}</h3>
+      <b>{`Dato: ${convertTime(props.comment.created)}`}</b>
       <p>{props.comment.comment}</p>
       {props.comment.user.username === props.username ? (
-        <button
-          onClick={() => {
-            props.delete(props.comment.id);
-          }}
-        >
+        <button onClick={() => {props.delete(props.comment.id);}}>
           Slet kommentar
         </button>
       ) : null}

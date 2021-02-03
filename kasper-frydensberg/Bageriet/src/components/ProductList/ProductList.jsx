@@ -22,6 +22,8 @@ export function ProductList() {
       };
 
     getProducts();
+
+    return null
   }, [categoryId]);
 
   //console.log(products);
