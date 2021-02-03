@@ -1,10 +1,11 @@
 import { Route, Switch, useRouteMatch, Redirect } from 'react-router-dom';
 import { ProductNav } from '../../Elements/ProductNav/ProductNav';
 import { ProductList } from '../../Elements/ProductList/ProductList';
+import { CommentSection } from '../../Elements/CommentSection/CommentSection'
 import styles from './Products.module.scss';
 import { ProductDetails } from '../../Elements/ProductDetails/ProductDetails';
 
-export const Products = () => {
+export const Products = props => {
 
     let { url } = useRouteMatch();
 
@@ -31,6 +32,7 @@ export const Products = () => {
 
                         <Route exact path={`${url}/:categoryId/:productId`}>
                             <ProductDetails />
+                            <CommentSection loginData={props.loginData} setLoginData={props.setLoginData} />
                         </Route>
 
                     </Switch>

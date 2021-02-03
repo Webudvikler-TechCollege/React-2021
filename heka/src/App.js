@@ -1,3 +1,4 @@
+import { useState, useEffect } from 'react';
 import './App.scss';
 import { 
   BrowserRouter as Router,
@@ -15,6 +16,15 @@ import {
  import { Login } from './components/Pages/Login/Login';
 
 function App() {
+
+  const [loginData, setLoginData] = useState('');
+
+  useEffect(() => {
+    if(sessionStorage.getItem('token')) {
+        setLoginData(JSON.parse(sessionStorage.getItem('token')))
+    }
+  }, [])  
+
   return (
     <Router>
       <Main>
@@ -24,8 +34,8 @@ function App() {
           <Home />
         </Route>
         <Route path="/products">
-          <Header />
-          <Products />
+          <Header loginData={loginData} setLoginData={setLoginData} />
+          <Products loginData={loginData} setLoginData={setLoginData} />
         </Route>
         <Route exact path="/contact">
           <Header />
@@ -33,7 +43,7 @@ function App() {
         </Route>
         <Route exact path="/login">
           <Header />
-          <Login />
+          <Login loginData={loginData} setLoginData={setLoginData} />
         </Route>
         <Route exact path="/">
           <Redirect to="/home" />
