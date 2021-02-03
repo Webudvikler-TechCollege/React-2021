@@ -9,15 +9,18 @@ export const CommentListItem = props => {
     }
 
     return (
-        <div className={styles.commentitem}>
-            <h4>{props.data.title}</h4>
-            <span>{`${props.data.user.username}, ${convertTime(props.data.created)}`}</span>
-            <p>{props.data.comment}</p>
-            {
+        <div className={`grid ${styles.commentitem}`}>
+            <div>
+                <h4>{props.data.title}</h4>
+                <span>{`${props.data.user.username}, ${convertTime(props.data.created)}`}</span>
+                <p>{props.data.comment}</p>
+            </div>
+            <div>{
                 props.data.user.username === props.loginData.username ? (
-                    <button onClick={() => props.delete(props.data.id)}>Slet</button>
+                    <button onClick={() => props.delete(props.data.id)}>&#128465;npm install @material-ui/core</button>
                 ) : null
             }
+            </div>
         </div>
     )
 }

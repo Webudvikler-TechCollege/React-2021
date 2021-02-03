@@ -3,6 +3,11 @@
     box-sizing: border-box;
     padding: 10px;
     margin-bottom: 10px;
+    grid-template-columns: 10fr 12fr;
+
+    div:last-child {
+        text-align: right;
+    }
 
     h4 {
         margin: 0px 0px 0px 0px;
@@ -11,6 +16,15 @@
     span {
         display: block;
         margin: 0px 0px 10px 0px;
+    }
+
+    button {
+        background-color: transparent;
+        border: solid 1px #ccc;
+        border-radius: 3px;
+        padding-left: 8px;
+        cursor: pointer;
+        
     }
 
 }

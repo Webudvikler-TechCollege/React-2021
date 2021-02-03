@@ -5,7 +5,7 @@ import { CommentSection } from '../../Elements/CommentSection/CommentSection'
 import styles from './Products.module.scss';
 import { ProductDetails } from '../../Elements/ProductDetails/ProductDetails';
 
-export const Products = props => {
+export const Products = () => {
 
     let { url } = useRouteMatch();
 
@@ -32,7 +32,7 @@ export const Products = props => {
 
                         <Route exact path={`${url}/:categoryId/:productId`}>
                             <ProductDetails />
-                            <CommentSection loginData={props.loginData} setLoginData={props.setLoginData} />
+                            <CommentSection />
                         </Route>
 
                     </Switch>
