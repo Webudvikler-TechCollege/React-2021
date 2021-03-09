@@ -1,3 +1,5 @@
+import { Nav } from './Nav';
+ 
 export const Header = (props) => {
 
     //console.log(props);
@@ -6,6 +8,7 @@ export const Header = (props) => {
         <header>
             <h1>{props.title}</h1>
             <h2>{props.subtitle}</h2>
+            <Nav />
         </header>
     )
 }

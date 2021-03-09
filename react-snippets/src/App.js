@@ -1,21 +1,30 @@
 import './App.css';
-import { Header } from './components/partials/Header';
-import { Footer } from './components/partials/Footer';
-import { useState } from 'react';
+import { BrowserRouter as Router, Switch, Route, Redirect } from 'react-router-dom';
+import { Home } from './components/pages/Home';
+import { About } from './components/pages/About';
 
 function App() {
-  const [keyword, setKeyword] = useState('');
-
-  console.log(keyword);
 
   return (
+    <Router>
     <div>
-      <Header title="Component Example" subtitle="Min første app" />
-      <main>
-        <input type="text" name="keyword" value={keyword} onChange={(e) => setKeyword(e.target.value)} />  
-      </main>
-      <Footer displayHistoryLink={true} />
+      <Switch>
+        
+        <Route exact path="/home">
+          <Home />
+        </Route>
+
+        <Route exact path="/about">
+          <About />
+        </Route>
+
+        <Route exact path="/">
+          <Redirect to="/home"></Redirect>
+        </Route>
+
+      </Switch>
     </div>
+    </Router>
   );
 }
 
